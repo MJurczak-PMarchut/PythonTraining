@@ -1,8 +1,6 @@
 """
 Basic variable types like int, float, str
-"""
 
-"""
 Operators
 + add
 - substract
@@ -15,15 +13,13 @@ Operators
 print(
     """
 INT is a type that stores integer values of theoretically unlimited size
-All operations on it behave as one could expect 
+All operations on it behave as one could expect
 
 A = 5
 B = 1456463545643565815186515151851645341566841815453145848485423457457575448484848468484848452458848477878454264732655
 C = A*B
 print("C =", C)
-
-"""
-)
+""")
 
 A = 5
 B = 1456463545643565815186515151851645341566841815453145848485423457457575448484848468484848452458848477878454264732655

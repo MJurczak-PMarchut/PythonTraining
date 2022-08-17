@@ -3,45 +3,45 @@ Fill missing code or correct any errors so that functions will return correct va
 To check if everything is ok use pytest
 pytest Python_Variable_Types/Exercises.py
 """
-import pytest
+# pylint: disable=invalid-sequence-index
 
 @staticmethod
-def test_Q1():
+def test_q1():
     """
     By filling missing code create list containing middle values from List1
     """
-    List1 = [1, 2, 3, 4]
-    List2 = List1[""" Fill here """]
-    assert List2 == [2, 3]
+    list_1 = [1, 2, 3, 4]
+    list_2 = list_1[""" Fill here """]
+    assert list_2 == [2, 3]
 
 
 @staticmethod
-def test_Q2():
+def test_q2():
     """
     By filling missing code reverse list defined here
     """
-    List1 = [4, 5, 6, 7, 8, 9]
-    List1 = """ Fill here """
-    assert List1 == [9, 8, 7, 6, 5, 4]
+    list_1 = [4, 5, 6, 7, 8, 9]
+    list_1 = """ Fill here """
+    assert list_1 == [9, 8, 7, 6, 5, 4]
 
 
 @staticmethod
-def test_Q3():
+def test_q3():
     """
     By filling missing code reverse list defined here and take only last 3 values of original list
     """
-    List1 = [4, 5, 6, 7, 8, 9]
-    List1 = """ Fill here """
-    assert List1 == [9, 8, 7]
+    list_1 = [4, 5, 6, 7, 8, 9]
+    list_1 = """ Fill here """
+    assert list_1 == [9, 8, 7]
 
 
 @staticmethod
-def test_Q4():
+def test_q4():
     """
     Figure out what is wrong here (You don't have to correct it)
     """
-    A = 0.1 + 0.2
-    comparison_result = (A == 0.3)
+    var_a = 0.1 + 0.2
+    comparison_result = (var_a == 0.3)
     # Uncomment line below if you know why it is failing (ctrl + /)
     # comparison_result = True
-    assert comparison_result == True
+    assert comparison_result is True

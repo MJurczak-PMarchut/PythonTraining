@@ -1,7 +1,7 @@
 """
 Fill missing code or correct any errors so that functions will return correct values
 To check if everything is ok use pytest
-pytest Python_Variable_Types/Exercises.py
+pytest PythonVariableTypes/Exercises.py
 """
 # pylint: disable=invalid-sequence-index
 

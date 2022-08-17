@@ -3,7 +3,7 @@ Fill missing code or correct any errors so that functions will return correct va
 To check if everything is ok use pytest
 pytest Python_Variable_Types/Exercises.py
 """
-
+import pytest
 
 @staticmethod
 def test_Q1():
@@ -45,4 +45,3 @@ def test_Q4():
     # Uncomment line below if you know why it is failing (ctrl + /)
     # comparison_result = True
     assert comparison_result == True
-

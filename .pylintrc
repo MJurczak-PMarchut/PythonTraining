@@ -1,3 +1,5 @@
 [FORMAT]
 max-line-length=120
-module-naming-style=PascalCase 
+module-naming-style=PascalCase
+
+disable=pointless-string-statement

@@ -121,5 +121,5 @@ list                                if that logic check returns true
 """
 )
 
-even_list = [x ** 2 for x in range(0, 6) if ((x ** 2) % 2 == 0)]
+even_list = [x ** 2 for x in range(0, 6) if (x ** 2) % 2 == 0]
 print(f'even_list = {even_list}')

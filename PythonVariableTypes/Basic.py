@@ -8,6 +8,7 @@ Operators
 / divide
 // divide without change of type
 % modulo
+** power
 """
 
 print(

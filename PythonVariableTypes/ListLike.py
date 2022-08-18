@@ -3,7 +3,7 @@ Explaining array like variables
 """
 
 print(
-"""
+    """
 In python variables can also be array like eg. list, str, dict
 Lets start with a string
 
@@ -16,7 +16,7 @@ print(MY_STR)
 MY_STR = "Python"
 print(MY_STR)
 print(
-"""
+    """
 many of standard operations can be applied to it
 A = MY_STR * 2
 B = MY_STR + "ABE"
@@ -34,7 +34,7 @@ print(A)
 print(B)
 
 print(
-"""
+    """
 
 specific letters can be extracted from it
 
@@ -48,7 +48,7 @@ C = MY_STR[0]
 print(C)
 
 print(
-"""
+    """
 Or ranges
 
 D = MY_STR[2:5]
@@ -61,7 +61,7 @@ D = MY_STR[2:5]
 print(D)
 
 print(
-"""
+    """
 [start:end:step] is a notation that is used to access portion of a list or string
 if any value is left python will use a default value eg.
 start, end and step can be any integer
@@ -76,7 +76,7 @@ D = MY_STR[::-1]
 print(D)
 
 print(
-"""
+    """
 Using an index that is out of range will cause Index Out Of Range exception to be raised
 
 D = MY_STR[15]
@@ -84,4 +84,42 @@ D = MY_STR[15]
 """
 )
 
-D = MY_STR[15]
+try:
+    D = MY_STR[15]
+except IndexError:
+    print('Exception was raised')
+else:
+    print('Exception was not raised')
+finally:
+    print(f'Let\'s try with MY_STR[0]\nMY_STR[0] = {MY_STR[0]}')
+
+print(
+    """
+List comprehension allows one to create a list with predetermined values quickly
+Following code creates a list of numbers that are even from equation y=x**2 for x in range 0, 5
+
+even_list  =  [x**2 for x in range(0,6) if ((x**2)%2==0)]
+
+To take it apart:
+x**2 is a x to the power of two
+range(0, 6) creates a list of numbers from 0 to 5
+
+item is added to the list if modulo 2 divison of x**2 equals 0 (number is even)
+
+
+
+even_list = [x ** 2 for x in range(0, 6) if ((x ** 2) % 2 == 0)]
+               |                               |             |
+               |                               |             |
+               |                               |             |
+              /                                |             |
+value to be --                                 |             |
+added to the                                   |             |
+list                                if that logic check returns true
+
+
+"""
+)
+
+even_list = [x ** 2 for x in range(0, 6) if ((x ** 2) % 2 == 0)]
+print(f'even_list = {even_list}')

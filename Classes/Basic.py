@@ -5,6 +5,20 @@ A class is a template to create objects
 e.g. imagine you have a couple of robots that each should perform the same function but have different motors and need
 to be driven differently, if you create a object for each drive type you can select different drivers by changing
 that instance
+
+In this case we will create something like this
+
+                            Parent class
+                     --------------------------
+                    |   AbstractMotorDriver   |
+                    --------------------------
+                                |
+                            Inheritance
+    Child class #1             /\\             child class #2
+ -----------------------      /  \\    ---------------------------
+|    MotorDriverBLDC   | ----      -- |    MotorDriverBrushed    |
+------------------------              ---------------------------
+
 """
 
 

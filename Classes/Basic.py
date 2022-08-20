@@ -26,8 +26,10 @@ class AbstractMotorDriver:
     """
     Class that creates interface for motor drives
     """
+    no_of_motors = 0
 
     def __init__(self, motor_side, motor_type):
+
         self.motor_side = motor_side
         self.motor_speed = 0
         self.motor_dir = 'stop'
@@ -52,6 +54,9 @@ class AbstractMotorDriver:
         print(f'{self.__motor_type} motor on {self.motor_side} side stopped from going in {self.motor_dir} direction'
               f' with speed of {self.motor_speed}')
 
+    def get_number_of_motors(self):
+        return AbstractMotorDriver.no_of_motors
+
 
 class MotorDriverBLDC(AbstractMotorDriver):
     """
@@ -60,6 +65,7 @@ class MotorDriverBLDC(AbstractMotorDriver):
 
     def __init__(self, motor_side):
         super().__init__(motor_side, 'BLDC')
+        AbstractMotorDriver.no_of_motors += 1
 
     def drive_forward(self, speed: int):
         """
@@ -92,6 +98,7 @@ class MotorDriverBrushed(AbstractMotorDriver):
 
     def __init__(self, motor_side):
         super().__init__(motor_side, 'Brushed')
+        AbstractMotorDriver.no_of_motors += 1
 
     def drive_forward(self, speed: int):
         """
@@ -131,3 +138,5 @@ if __name__ == '__main__':
 
     Motors['Left'].stop()
     Motors['Right'].stop()
+
+    print(AbstractMotorDriver(None, None).get_number_of_motors())

@@ -29,11 +29,14 @@ class AbstractMotorDriver:
     no_of_motors = 0
 
     def __init__(self, motor_side, motor_type):
-
         self.motor_side = motor_side
         self.motor_speed = 0
         self.motor_dir = 'stop'
         self.__motor_type = motor_type
+        AbstractMotorDriver.no_of_motors += 1
+
+    def __del__(self):
+        AbstractMotorDriver.no_of_motors -= 1
 
     def drive_forward(self, speed: int):
         """
@@ -54,7 +57,11 @@ class AbstractMotorDriver:
         print(f'{self.__motor_type} motor on {self.motor_side} side stopped from going in {self.motor_dir} direction'
               f' with speed of {self.motor_speed}')
 
-    def get_number_of_motors(self):
+    @staticmethod
+    def get_number_of_motors():
+        """
+        :return: number of instantiated child classes
+        """
         return AbstractMotorDriver.no_of_motors
 
 
@@ -65,7 +72,9 @@ class MotorDriverBLDC(AbstractMotorDriver):
 
     def __init__(self, motor_side):
         super().__init__(motor_side, 'BLDC')
-        AbstractMotorDriver.no_of_motors += 1
+
+    def __del__(self):
+        AbstractMotorDriver.no_of_motors -= 1
 
     def drive_forward(self, speed: int):
         """
@@ -98,7 +107,9 @@ class MotorDriverBrushed(AbstractMotorDriver):
 
     def __init__(self, motor_side):
         super().__init__(motor_side, 'Brushed')
-        AbstractMotorDriver.no_of_motors += 1
+
+    def __del__(self):
+        AbstractMotorDriver.no_of_motors -= 1
 
     def drive_forward(self, speed: int):
         """
@@ -127,16 +138,48 @@ class MotorDriverBrushed(AbstractMotorDriver):
 if __name__ == '__main__':
     left_motor = MotorDriverBrushed('left')
     right_motor = MotorDriverBLDC('right')
-
+    print()
     left_motor.drive_forward(120)
     right_motor.drive_forward(180)
-
+    print()
     """
     We can also put it in dict for easier access
     """
     Motors = {'Left': left_motor, 'Right': right_motor}
 
     Motors['Left'].stop()
+    print()
     Motors['Right'].stop()
 
-    print(AbstractMotorDriver(None, None).get_number_of_motors())
+    print()
+
+    print(f'We should have 2 motors, current number: {AbstractMotorDriver(None, None).get_number_of_motors()}')
+
+    del right_motor
+
+    print(f'We deleted a object we should expect number to go down, current number: '
+          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n'
+          f'But we did not delete all references to it!\n')
+
+    del Motors['Right']
+
+    print(f'Now we should have less active objects, current number: '
+          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+
+    del left_motor
+    del Motors['Left']
+
+    print(f'Now there should be no active objects, current number: '
+          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+
+    Motors = {
+        'Left': MotorDriverBrushed('left'),
+        'Right': MotorDriverBLDC('right')
+    }
+
+    print(f'Now there should have 2 active objects, current number: '
+          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+
+    print('Now deleting single instance of dict')
+    del Motors['Left']
+    print(f'Current number of instances: {AbstractMotorDriver(None, None).get_number_of_motors()}\n')

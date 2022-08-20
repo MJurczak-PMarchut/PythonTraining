@@ -60,6 +60,7 @@ class AbstractMotorDriver:
     @staticmethod
     def get_number_of_motors():
         """
+        A static method to return a number of instances of motor driver
         :return: number of instantiated child classes
         """
         return AbstractMotorDriver.no_of_motors
@@ -153,33 +154,30 @@ if __name__ == '__main__':
 
     print()
 
-    print(f'We should have 2 motors, current number: {AbstractMotorDriver(None, None).get_number_of_motors()}')
+    print(f'We should have 2 motors, current number: {AbstractMotorDriver.get_number_of_motors()}')
 
     del right_motor
 
     print(f'We deleted a object we should expect number to go down, current number: '
-          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n'
+          f'{AbstractMotorDriver.get_number_of_motors()}\n'
           f'But we did not delete all references to it!\n')
 
     del Motors['Right']
 
-    print(f'Now we should have less active objects, current number: '
-          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+    print(f'Now we should have less active objects, current number: {AbstractMotorDriver.get_number_of_motors()}\n')
 
     del left_motor
     del Motors['Left']
 
-    print(f'Now there should be no active objects, current number: '
-          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+    print(f'Now there should be no active objects, current number: {AbstractMotorDriver.get_number_of_motors()}\n')
 
     Motors = {
         'Left': MotorDriverBrushed('left'),
         'Right': MotorDriverBLDC('right')
     }
 
-    print(f'Now there should have 2 active objects, current number: '
-          f'{AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+    print(f'Now there should be 2 active objects, current number: {AbstractMotorDriver.get_number_of_motors()}\n')
 
-    print('Now deleting single instance of dict')
+    print('Now deleting single instance in dict')
     del Motors['Left']
-    print(f'Current number of instances: {AbstractMotorDriver(None, None).get_number_of_motors()}\n')
+    print(f'Current number of instances: {AbstractMotorDriver.get_number_of_motors()}\n')

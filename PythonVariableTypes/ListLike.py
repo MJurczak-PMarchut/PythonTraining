@@ -162,11 +162,15 @@ for key in ex_dict:
 
 
 def func_a():
-    pass
+    """
+    empty function
+    """
 
 
 ex_dict = {'A': 10, 'B': "Python", 10: 'A', 31.2: 'FLOAT', func_a: 'func_a'}
 
+
+# pylint: disable= consider-using-dict-items
 for key in ex_dict:
     print(f'key: = {key}')
     print(f'ex_dict[key] = {ex_dict[key]}\n')

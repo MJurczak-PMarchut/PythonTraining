@@ -3,9 +3,8 @@ Fill missing code or correct any errors so that functions will return correct va
 To check if everything is ok use pytest
 pytest PythonVariableTypes/Exercises.py
 """
+# pylint: disable-all
 
-
-# pylint: disable=invalid-sequence-index
 
 @staticmethod
 def test_q1():

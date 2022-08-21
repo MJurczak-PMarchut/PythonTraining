@@ -21,8 +21,10 @@ In this case we will create something like this
 
 """
 
+from abc import ABC, abstractmethod
 
-class AbstractMotorDriver:
+
+class AbstractMotorDriver(ABC):
     """
     Class that creates interface for motor drives
     """
@@ -38,19 +40,27 @@ class AbstractMotorDriver:
     def __del__(self):
         AbstractMotorDriver.no_of_motors -= 1
 
+    @abstractmethod
     def drive_forward(self, speed: int):
         """
         Interface for drive_forward method
         """
         raise NotImplementedError
 
+    @abstractmethod
     def drive_backward(self, speed: int):
         """
         Interface for drive_backward method
         """
         raise NotImplementedError
 
+    @abstractmethod
     def stop(self):
+        """
+        Interface for stop method
+        """
+
+    def stop_message(self):
         """
         Stop motor
         """
@@ -98,7 +108,7 @@ class MotorDriverBLDC(AbstractMotorDriver):
         Stop motor
         """
         print(f'Stopping BLDC motor on {self.motor_side}')
-        super().stop()
+        super().stop_message()
 
 
 class MotorDriverBrushed(AbstractMotorDriver):
@@ -133,10 +143,13 @@ class MotorDriverBrushed(AbstractMotorDriver):
         Stop motor
         """
         print(f'Stopping Brushed motor on {self.motor_side}')
-        super().stop()
+        super().stop_message()
 
 
 if __name__ == '__main__':
+    """
+    Executes only if it is this file that is being executed directly
+    """
     left_motor = MotorDriverBrushed('left')
     right_motor = MotorDriverBLDC('right')
     print()

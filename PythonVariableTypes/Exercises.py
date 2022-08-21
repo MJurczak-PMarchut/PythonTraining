@@ -3,6 +3,8 @@ Fill missing code or correct any errors so that functions will return correct va
 To check if everything is ok use pytest
 pytest PythonVariableTypes/Exercises.py
 """
+
+
 # pylint: disable=invalid-sequence-index
 
 @staticmethod
@@ -45,3 +47,23 @@ def test_q4():
     # Uncomment line below if you know why it is failing (ctrl + /)
     # comparison_result = True
     assert comparison_result is True
+
+
+@staticmethod
+def test_q5():
+    """
+    Create a class Bus that has default capacity of 50
+    """
+
+    class Vehicle:
+        def __init__(self, name, max_speed, mileage):
+            self.name = name
+            self.max_speed = max_speed
+            self.mileage = mileage
+
+        def seating_capacity(self):
+            raise NotImplementedError
+
+    solaris = Bus('bus', 90, 1.4)
+
+    assert solaris.seating_capacity() == "The seating capacity of a bus is 50 passengers"

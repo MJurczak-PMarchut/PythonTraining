@@ -1,8 +1,9 @@
 """
 File that explains basics of functions in python
 """
+# pylint: disable= invalid-name, inconsistent-return-statements, eval-used
 
-var_1 = 5
+VAR_1 = 5
 
 
 def function_1(a, b):
@@ -47,11 +48,11 @@ def function_4(**kwargs):
     :return:
     """
     sum_p = None
-    for arg in kwargs:
+    for val in kwargs.items():
         if sum_p is None:
-            sum_p = kwargs[arg]
+            sum_p = val
         else:
-            sum_p += kwargs[arg]
+            sum_p += val
     return sum_p
 
 
@@ -65,11 +66,11 @@ def function_5(a, b, operation=None):
     return None
 
 
-def function_6(a, b, c=10, *args, **kwargs):
+def function_6(a, b, *args, c=10, **kwargs):
     """
     What do I do?
     """
-    if len(args):
+    if len(args) > 0:
         sum_p = args[0]
         for arg in args[1:]:
             sum_p += arg
@@ -79,7 +80,7 @@ def function_6(a, b, c=10, *args, **kwargs):
         sum_p = kwargs['return_default']
         sum_p += sum_p
     else:
-        return (a * b) + c + var_1 + sum_p
+        return (a * b) + c + VAR_1 + sum_p
 
 
 if __name__ == '__main__':

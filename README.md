@@ -44,8 +44,13 @@ To activate venv in bash use:
 ```
 source venv/Scripts/activate
 ```
+or if no Scripts folder:
 
-To activate venv in windows CMD use:
+```
+source venv/bin/activate
+```
+
+To activate venv in Windows CMD use:
 ```
 .\venv\Scripts\activate
 ```

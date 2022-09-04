@@ -8,7 +8,7 @@ sudo apt install program_name
 ```
 You will be prompted when that will become necessary and will be given a hint.
 ***
-To properly clone this repository you firs need to create ssh keys:\
+To properly clone this repository you first need to create ssh keys:\
 (assuming using git-bash or Linux)
 ```
 cd ~/.ssh
@@ -44,7 +44,7 @@ To activate venv in bash use:
 ```
 source venv/Scripts/activate
 ```
-or if no Scripts folder:
+Or if there is no Scripts directory:
 
 ```
 source venv/bin/activate

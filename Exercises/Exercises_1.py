@@ -1,13 +1,13 @@
 """
 Fill missing code or correct any errors so that functions will return correct values
 To check if everything is ok use pytest
-pytest PythonVariableTypes/Exercises.py
+pytest PythonVariableTypes/Exercises_1.py
 """
 # pylint: disable-all
 
 
 @staticmethod
-def test_qt():
+def test_q1():
     """
     By filling missing code create list containing middle values from List1
     """

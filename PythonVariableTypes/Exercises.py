@@ -7,7 +7,7 @@ pytest PythonVariableTypes/Exercises.py
 
 
 @staticmethod
-def test_q1():
+def test_qt():
     """
     By filling missing code create list containing middle values from List1
     """

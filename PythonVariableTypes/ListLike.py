@@ -10,11 +10,17 @@ Lets start with a string
 MY_STR = "Python"
 print(MY_STR)
 
+to get its length one can use: len(MY_STR)
+
+print(f'MY_STR length is: {len(MY_STR)}')
 """
 )
 
 MY_STR = "Python"
 print(MY_STR)
+
+print(f'MY_STR length is: {len(MY_STR)}')
+
 print(
     """
 many of standard operations can be applied to it
@@ -32,6 +38,28 @@ B = MY_STR + "ABE"
 
 print(A)
 print(B)
+
+print(
+    """
+Strings also allow other types of manipulation eg. changing the case of letters
+
+A = MY_STR.upper()
+B = MY_STR.lower()
+C = MY_STR.swapcase()
+
+print(A)
+print(B)
+print(C)
+"""
+)
+
+A = MY_STR.upper()
+B = MY_STR.lower()
+C = MY_STR.swapcase()
+
+print(A)
+print(B)
+print(C)
 
 print(
     """
@@ -135,8 +163,7 @@ this will create a list with following values
 
 """)
 
-LIST_A = 9*[0] + [1, 2, 3]
-
+LIST_A = 9 * [0] + [1, 2, 3]
 
 print("""
 ************************************************************************************************************************
@@ -168,7 +195,6 @@ def func_a():
 
 
 ex_dict = {'A': 10, 'B': "Python", 10: 'A', 31.2: 'FLOAT', func_a: 'func_a'}
-
 
 # pylint: disable= consider-using-dict-items
 for key in ex_dict:

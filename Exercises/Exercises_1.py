@@ -151,3 +151,28 @@ def test_q9():
     assert string_op("AlaMaKota") == "aLmAOT"
     assert string_op("") == ""
     assert string_op("AAAA") == "aaa"
+
+
+@staticmethod
+def test_ex_q9():
+    """
+    write a function that replaces letters cases with the same case that the first letter has
+    and also removes every third letter
+    This exercise will most likely require searching for help on the internet
+    """
+
+    def string_op(str_in):
+        """
+        replaces letters cases with the same case that the first letter has
+        and also removes every third letter
+        """
+        str_out = ''
+        """
+        write function here
+        """
+        return str_out
+
+    assert string_op("AlaMaKota") == "ALMAOT"
+    assert string_op("") == ""
+    assert string_op("Aaaa") == "AAA"
+    assert string_op("conCURRENT") == "cocuret"
